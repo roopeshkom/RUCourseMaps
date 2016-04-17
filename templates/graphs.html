@@ -1,15 +1,12 @@
 <html>
 <head>
 		<title>RUCourseMaps - Generic Tab Title Text Goes Here</title>
-
+  </br>
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-
 		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 		<script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
 		<script src="https://cdn.rawgit.com/cpettitt/dagre/v0.7.4/dist/dagre.min.js"></script>
 		<script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-dagre/1.1.2/cytoscape-dagre.js"></script>
-
-		<script></script>
 
 		<style>
 			body {
@@ -33,12 +30,14 @@
 		</style>
 
 <script>
- $(function(courses,prereqs){
 
+  var courses = "{{ courses }}";
+	var prereqs = "{{ prereqs }}";
+ $(function(courses,prereqs){
 				//TEST String for Classes / Nodes. We replace these values with those gotten from Roops.
-                var classes = courses;
+        var classes = courses;
 				//TEST String for Prerequisite classes / Edges. We replace these values with those gotten from Roops.
-				var prereqs = prereqs;
+			//	var prereqs = prereqs;
 
 				//Empty Arrays that will be filled with respective node and edge objects.
 				var courses = [];
@@ -59,7 +58,7 @@
 				}
 
 				// creates and fills $courseEdges with Edge objects from $prereqs
-				for(index = 1; index < prereqs.length; index+=2)
+				for(index = 1; index < prereqs.length; index=index+2)
 				{
 					courseEdges.push
 					(
@@ -120,10 +119,16 @@
 </script>
 	</head>
 
+	<!-- <script>
+	 console.log("say thisss");
+		var courses={{ courses }};
+		console.log(courses);
+		var prereqs={{ prereqs }};
+		console.log(prereqs);
+	</script> -->
+
 	<body>
-		<h1>Generic Text w/ something about Rutgers</h1>
-        <p> School:Rutgers University, Computer Science.</p>
-		<p></p>
+		<h1>this is a title</h1>
 		<div id="cy"></div>
 
 	</body>
