@@ -2,6 +2,7 @@ from sys import argv
 import json
 import re
 
+
 def getLists(depnum):
 	if depnum == -1:
 		return None
@@ -33,4 +34,3 @@ def getLists(depnum):
 	ret.append(', '.join(courses))
 	ret.append(', '.join(prereqs))
 	return ret
-

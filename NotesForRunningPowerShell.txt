@@ -1,4 +1,8 @@
 Flash-DevTools.ps1 .\rucoursemaps.py
-.\venv\Scripts\activate
+.\venv\Scripts\activate  
+start python app.py
 http://flask.pocoo.org/docs/0.10/quickstart/#accessing-request-data
 http://flask.pocoo.org/docs/0.10/quickstart/
+
+bash
+ /cygdrive/c/Python27/python.exe thing.py
