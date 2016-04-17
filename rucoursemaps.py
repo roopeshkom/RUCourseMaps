@@ -4,20 +4,18 @@ import re
 
 with open(argv[1]) as inp:
 	parsed_json = json.loads(inp.read())
-	classes = []; prereqs = {}
+	prereqs = []; courses = []
 	for i in parsed_json:
-		classes.append(i.get('title'))
+		courses.append(i.get('courseNumber'))
 		text = i.get('preReqNotes')
-		#print "TEXT: {}".format(text)
 		if not (text is None):
-			m = re.search("198:... ", str(text))
-			if not (m is None):
-				#Currently get only the first prereq, will change to print all of them
-				print m.group(0)
-			else:
-				print "None"
+			for m in re.finditer("198:... ", str(text)):
+				if not (m is None):
+					prereqs.append((m.group(), "%s:%s" % (i.get('subject'), i.get('courseNumber'))))
+				else:
+					prereqs.append(('nothing', "%s:%s" % (i.get('subject'), i.get('courseNumber'))))
 		else:
-			print "None"
-		
+			prereqs.append(('nothing', "%s:%s" % (i.get('subject'), i.get('courseNumber'))))
 
-	#(i.get('title'), i.get('subject'), i.get('courseNumber'), i.get('preReqNotes'))
+	print "Courses:\n%s" % courses
+	print "Prereqs:\n%s" % prereqs
