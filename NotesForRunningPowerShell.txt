@@ -1,0 +1,4 @@
+Flash-DevTools.ps1 .\rucoursemaps.py
+.\venv\Scripts\activate
+http://flask.pocoo.org/docs/0.10/quickstart/#accessing-request-data
+http://flask.pocoo.org/docs/0.10/quickstart/
