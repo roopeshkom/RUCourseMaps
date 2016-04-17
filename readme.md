@@ -5,3 +5,13 @@ This is a web flask application.
 Graphs were generated via the Cytoscape API.
 
 Note: Courses and prerequisites listed are based off of Rutgers University's Fall 2016 semester. Selection of different semesters / years is a planned feature that will be implemented in the near future.
+
+
+How to run local host:
+First you need to clone the repo
+`git clone https://github.com/roopeshkom/RUCourseMaps.git`
+then make sure you have python 2.7 installed
+then in bash cd into the repo
+`python app.py`
+then go to brower
+`localhost:5000`
