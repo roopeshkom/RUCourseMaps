@@ -6,7 +6,7 @@ import urllib2
 def getLists(depnum):
 	if depnum == -1:
 		return None
-		
+
 	url = "http://sis.rutgers.edu/soc/courses.json?campus=NB&semester=92016&level=U&subject="
 	url += str(depnum)
 
@@ -35,7 +35,8 @@ def getLists(depnum):
 		i.strip('u')
 	for i in prereqs:
 		i.strip('u')
-
+	print courses
+	print prereqs
 	ret = []
 	ret.append(', '.join(courses))
 	ret.append(', '.join(prereqs))
