@@ -33,24 +33,27 @@
 
   var courses = "{{ courses }}";
 	var prereqs = "{{ prereqs }}";
- $(function(courses,prereqs){
+ $(function(){
 				//TEST String for Classes / Nodes. We replace these values with those gotten from Roops.
-        var classes = courses;
+        //var classes = courses;
+
+				//var p = prereqs;
 				//TEST String for Prerequisite classes / Edges. We replace these values with those gotten from Roops.
 			//	var prereqs = prereqs;
 
 				//Empty Arrays that will be filled with respective node and edge objects.
-				var courses = [];
-				var courseEdges = [];
-
+				var coursesArr = courses.split(", ");
+				var prereqsArr = prereqs.split(", ");
+				var nodes = [];
+				var edges = [];
 				//creates and fills $courses with Node objects from $classes.
-				for(index = 0; index < classes.length; index++)
+				for(index = 0; index < coursesArr.length; index++)
 				{
-					courses.push
+					nodes.push
 					(
 						{
 					 data: {
-						id: classes[index]
+						id: coursesArr[index]
 
 						   }
 						}
@@ -58,14 +61,14 @@
 				}
 
 				// creates and fills $courseEdges with Edge objects from $prereqs
-				for(index = 1; index < prereqs.length; index=index+2)
+				for(index = 1; index < prereqsArr.length; index=index+2)
 				{
-					courseEdges.push
+					edges.push
 					(
 						{
 						data: {
-							source: prereqs[index-1],
-							target: prereqs[index]
+							source: prereqsArr[index-1],
+							target: prereqsArr[index]
 						}
 						}
 					);
@@ -107,9 +110,9 @@
 
 					elements: {
 
-						nodes: courses, //see above, ~line 48-59
+						nodes: nodes, //see above, ~line 48-59
 
-						edges: courseEdges //see above, ~line 62 - 73
+						edges: edges //see above, ~line 62 - 73
 					}
 
 
