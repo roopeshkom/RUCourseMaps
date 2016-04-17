@@ -7,14 +7,13 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        return render_template("index.html") #refdturn form
+        return render_template("index.html") #efdtur form
     if request.method == 'POST':
         deptnum = request.form.get('deptnum')
-        print deptnum
-        courses,prereqs = getLists(deptnum) #getLists(deptnum)
+        courses,prereqs = getLists(deptnum) #getLiss(deptnum)
         print courses
         print prereqs
-        return render_template("graph.html",courses,prereqs)
+        return render_template("graphs.html",courses=courses,prereqs=prereqs)
 
 
 if __name__ == '__main__':
