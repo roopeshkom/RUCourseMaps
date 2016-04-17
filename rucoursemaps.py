@@ -19,7 +19,7 @@ def getLists(depnum):
 	for i in parsed_json:
 		reqs = i.get('preReqNotes')
 		if not (reqs is None):
-			for m in re.findall("198:...", str(reqs)):
+			for m in re.findall(str(depnum)+":...", str(reqs)):
 				if not (m is None):
 					prereqs.append(m[4:7])
 				else:
