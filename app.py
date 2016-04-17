@@ -11,10 +11,11 @@ def index():
     if request.method == 'POST':
         deptnum = request.form.get('deptnum')
         courses,prereqs = getLists(deptnum) #getLiss(deptnum)
-        print courses
-        print prereqs
+        # print courses
+        # print prereqsfdsafd
         return render_template("graphs.html",courses=courses,prereqs=prereqs)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+#special thanks to Reavor and
