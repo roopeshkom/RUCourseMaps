@@ -1,4 +1,3 @@
-from sys import argv
 import json
 import re
 
@@ -6,7 +5,7 @@ def getLists(depnum):
 	if depnum == -1:
 		return None
 
-	with open(argv[1]) as inp:
+	with open("testdata.txt") as inp:
 		parsed_json = json.loads(inp.read())
 		prereqs = []; courses = []
 		for i in parsed_json:
@@ -34,3 +33,6 @@ def getLists(depnum):
 	ret.append(', '.join(prereqs))
 	return ret
 
+a, b = getLists(12)
+print a
+print b
