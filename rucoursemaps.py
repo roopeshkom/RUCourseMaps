@@ -33,10 +33,3 @@ def getLists(depnum):
 	ret.append(', '.join(courses))
 	ret.append(', '.join(prereqs))
 	return ret
-<<<<<<< HEAD
-=======
-
-a, b = getLists(12)
-print a
-print b
->>>>>>> 777c6057287e19b3a9580e4f21fe550d0b5bc6a8
