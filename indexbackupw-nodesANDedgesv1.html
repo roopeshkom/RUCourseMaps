@@ -1,0 +1,131 @@
+<html>
+<head>
+		<title>CourseHops-A JHU Course Map Visualizer</title>
+
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+		<script src="https://cdn.rawgit.com/cpettitt/dagre/v0.7.4/dist/dagre.min.js"></script>
+		<script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-dagre/1.1.2/cytoscape-dagre.js"></script>
+
+		<script></script>
+    
+		<style>
+			body {
+				font-family: helvetica;
+				font-size: 14px;
+			}
+
+			#cy {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 999;
+			}
+
+			h1 {
+				opacity: 0.5;
+				font-size: 1em;
+			}
+		</style>
+        
+<script> 
+ $(function(){
+
+				//TEST String for Classes / Nodes. We replace these values with those gotten from Roops.
+                var classes = [452,440,437,428,419,417,416,415,352,344,336,334,323,314,214,213,211,206,205,112,111]; 
+				//TEST String for Prerequisite classes / Edges. We replace these values with those gotten from Roops.
+				var prereqs = [111,112,112,211,112,205,211,214,205,206,205,314,211,314,314,428,334,415,211,416,334,416,112,213,112,344,213,334,344,416,214,314,314,415,211,336,314,447, 416,417];
+				
+				//Empty Arrays that will be filled with respective node and edge objects.
+				var courses = [];
+				var courseEdges = [];
+				
+				//creates and fills $courses with Node objects from $classes.
+				for(index = 0; index < classes.length; index++)
+				{
+					courses.push
+					(
+						{
+					 data: {
+						id: classes[index]
+						
+						   }
+						}
+					);
+				}
+				
+				// creates and fills $courseEdges with Edge objects from $prereqs
+				for(index = 1; index < prereqs.length; index+=2)
+				{
+					courseEdges.push
+					(
+						{
+						data: {
+							source: prereqs[index-1],
+							target: prereqs[index]
+						}
+						}
+					);
+				}
+				
+				//cytoscape object cy is called as a div in the html.
+				var cy = window.cy = cytoscape({
+					container: document.getElementById('cy'),
+                    
+					boxSelectionEnabled: false,
+					autounselectify: true,
+					
+					layout: {
+						name: 'dagre'
+					},
+
+					style: [
+						{
+							selector: 'node',
+							style: {
+								'content': 'data(id)',
+								'text-opacity': 0.5,
+								'text-valign': 'center',
+								'text-halign': 'right',
+								'background-color': '#11479e'
+							}
+						},
+
+						{
+							selector: 'edge',
+							style: {
+								'width': 4,
+								'target-arrow-shape': 'triangle',
+								'line-color': '#9dbaea',
+								'target-arrow-color': '#9dbaea'
+							}
+						}
+					],
+					
+					elements: {
+					
+						nodes: courses, //see above, ~line 48-59
+						
+						edges: courseEdges //see above, ~line 62 - 73
+					}
+                
+
+				});
+
+			});
+</script>
+	</head>
+
+	<body>
+		<h1>Generic Text w/ something about Rutgers</h1>
+        <p> School:Rutgers University, Computer Science.</p>
+		<p></p>
+		<div id="cy"></div>
+        
+	</body>
+
+</html>
