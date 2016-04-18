@@ -45,6 +45,6 @@ def getLists(depnum):
 	ret.append(', '.join(prereqs))
 	return ret
 
-# a, b = getLists(198)
-# print "Classes:\n%s" % a
-# print "Prereqs:\n%s" % b
+a, b = getLists(165)
+print "Classes:\n%s" % a
+print "Prereqs:\n%s" % b
