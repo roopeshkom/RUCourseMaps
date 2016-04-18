@@ -45,12 +45,7 @@ def getLists(depnum):
 	ret.append(', '.join(prereqs))
 	return ret
 
-<<<<<<< HEAD
-a, b = getLists(165)
-print "Classes:\n%s" % a
-print "Prereqs:\n%s" % b
-=======
-a, b = getLists(198)
-print "Classes:\n%s" % a
-print "Prereqs:\n%s" % b
->>>>>>> be0363dd6d824dbeecd41efea5e7c62af4cf29b9
+def test():
+	a, b = getLists(int(raw_input("Please enter the department number: ")))
+	print "Classes:\n%s" % a
+	print "Prereqs:\n%s" % b
