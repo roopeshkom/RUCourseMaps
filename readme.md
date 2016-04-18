@@ -27,5 +27,6 @@ Feel free to fork
 **TODO:**
   1. upload project to hiroku and connect domain name
   2. correct json parsing algo for all SOE departments, where it is not detecting prereqs
+	-> To do this we need to integrate the Spring and Fall Semester JSON together to detect all posssible prereqs
   3. add clicking functionality such that it will highlight the nodes and previosu nodes
   4. add hover-over node -> textbox (course name and desciption)
