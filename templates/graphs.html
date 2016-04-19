@@ -54,7 +54,9 @@
 						{
 					 data: {
 						id: coursesArr[index],
-						href: 'http://www.cs.rutgers.edu' //placeholder href to test if it works.
+						href: 'https://www.cs.rutgers.edu/undergraduate/courses/'+coursesArr[index]+'/' //adds href functionality for CS department only. See readme 
+																										//on what I need to make it work for every department.
+						
 						   }
 						}
 					);
@@ -118,10 +120,11 @@
 
 				});
 				
-			/////////Function that governs the href'ing event.
+			/////////Function that governs the href'ing event. /////////////
 				cy.on('tap', 'node', function(){
 					try { // your browser may block popups
 							window.open( this.data('href') );
+							//console.log("I was clicked!"); //Testing console. It works, btw.
 						} 
 					catch(e){ // fall back on url change
 					window.location.href = this.data('href'); 
@@ -131,13 +134,11 @@
 </script>
 	</head>
 
-	<!-- <script>
-	 console.log("say thisss");
-		var courses={{ courses }};
-		console.log(courses);
-		var prereqs={{ prereqs }};
-		console.log(prereqs);
-	</script> -->
+	 <script>
+	 console.log("The quick brown fox jumps over the lazy dog.");
+		console.log("Courses: "+courses);
+		console.log("Prereq Pairs: "+prereqs);
+	</script>
 
 	<body>
 		<h1>RU COURSE MAPS</h1>
