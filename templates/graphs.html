@@ -7,6 +7,11 @@
 		<script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
 		<script src="https://cdn.rawgit.com/cpettitt/dagre/v0.7.4/dist/dagre.min.js"></script>
 		<script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-dagre/1.1.2/cytoscape-dagre.js"></script>
+		
+		<!-- Imports needed to use the qTip 'hover' functionality. -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.js"></script>
+		<link href="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
+		<script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-qtip/2.2.5/cytoscape-qtip.js"></script>
 
 		<style>
 			body {
@@ -130,6 +135,22 @@
 					window.location.href = this.data('href'); 
 							} 
 				});
+			////////////////////////////////////////////////////////////////
+			
+			/////////Function that governs the hover over event. /////////////
+				cy.on('mouseover', 'node', function(event) {
+					var node = event.cyTarget;
+					node.qtip({
+						content: 'Click me!', //text goes here.
+						show: {
+							event: event.type,
+							ready: true
+						},
+						hide: {
+						event: 'mouseout unfocus'
+						}
+					}, event);
+});
 			});
 </script>
 	</head>
