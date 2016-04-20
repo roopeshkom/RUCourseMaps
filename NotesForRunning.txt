@@ -1,0 +1,14 @@
+//////run app in venv/////
+.\venv\Scripts\activate
+pip install venv
+pip install Flask
+pip install *other dependencies*
+deactivate
+
+/////start the application////
+#cd in to rucoursemaps
+python app.py
+#then go to localhost:5000
+
+/////for cywin users
+ /cygdrive/c/Python27/python.exe app.py
