@@ -7,7 +7,7 @@
 		<script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
 		<script src="https://cdn.rawgit.com/cpettitt/dagre/v0.7.4/dist/dagre.min.js"></script>
 		<script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-dagre/1.1.2/cytoscape-dagre.js"></script>
-		
+
 		<!-- Imports needed to use the qTip 'hover' functionality. -->
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.js"></script>
 		<link href="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
@@ -38,6 +38,7 @@
 
   var courses = "{{ courses }}";
 	var prereqs = "{{ prereqs }}";
+	var names		= "{{	names   }}";
  $(function(){
 				//TEST String for Classes / Nodes. We replace these values with those gotten from Roops.
         //var classes = courses;
@@ -59,9 +60,9 @@
 						{
 					 data: {
 						id: coursesArr[index],
-						href: 'https://www.cs.rutgers.edu/undergraduate/courses/'+coursesArr[index]+'/' //adds href functionality for CS department only. See readme 
+						href: 'https://www.cs.rutgers.edu/undergraduate/courses/'+coursesArr[index]+'/' //adds href functionality for CS department only. See readme
 																										//on what I need to make it work for every department.
-						
+
 						   }
 						}
 					);
@@ -124,19 +125,19 @@
 
 
 				});
-				
+
 			/////////Function that governs the href'ing event. /////////////
 				cy.on('tap', 'node', function(){
 					try { // your browser may block popups
 							window.open( this.data('href') );
 							//console.log("I was clicked!"); //Testing console. It works, btw.
-						} 
+						}
 					catch(e){ // fall back on url change
-					window.location.href = this.data('href'); 
-							} 
+					window.location.href = this.data('href');
+							}
 				});
 			////////////////////////////////////////////////////////////////
-			
+
 			/////////Function that governs the hover over event. /////////////
 				cy.on('mouseover', 'node', function(event) {
 					var node = event.cyTarget;
