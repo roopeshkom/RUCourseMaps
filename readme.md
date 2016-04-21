@@ -40,4 +40,4 @@ Feel free to fork
 	-> To do this we need to integrate the Spring and Fall Semester JSON together to detect all posssible prereqs
   3. add clicking functionality such that it will highlight the nodes and previous nodes
   4. add hover-over node -> textbox (~~course name~~ and desciption)
-  <del>5. Either add the course's department code into one of the strings, or create a new string that incorporates this: (Ex. 198:111, 198:112, ....). I need the department # so I can properly add href links / other fun stuff based on the specific department selected by the user.</del>
+  5. <del>Either add the course's department code into one of the strings, or create a new string that incorporates this: (Ex. 198:111, 198:112, ....). I need the department # so I can properly add href links / other fun stuff based on the specific department selected by the user.</del>
