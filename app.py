@@ -16,7 +16,7 @@ def index():
         print "\\\\\\\\\\\\\\\\\\LIST OF prereqs\\\\\\\\\\\\\\"
         print prereqs
         print "\\\\\\\\\\\\\\\\\\LIST OF names\\\\\\\\\\\\\\\\"
-        print names    
+        print names
         return render_template("graphs.html",courses=courses,prereqs=prereqs,names=names)
         #print stuff to debug
 

@@ -14,8 +14,12 @@ First you need to clone the repo
 `git clone https://github.com/roopeshkom/RUCourseMaps.git`
 
 Then make sure you have python 2.7 installed, *as well as* flask.
+`pip install Flask`
+`pip install venv`
 Next cd into the RUCourseMaps repo and run
+`.\venv\Scripts\activate`
 `python app.py`
+then to stop the virtual envieroment its `deactivate`
 
 Finally go to browser
 `localhost:5000`
@@ -25,7 +29,7 @@ Finally go to browser
 Feel free to fork
 
 **TODO:**
-  1. upload project to heroku and connect domain name
+
   2. correct json parsing algo for all SOE departments, where it is not detecting prereqs
 	-> To do this we need to integrate the Spring and Fall Semester JSON together to detect all posssible prereqs
   3. add clicking functionality such that it will highlight the nodes and previosu nodes
