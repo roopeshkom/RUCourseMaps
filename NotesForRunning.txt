@@ -2,8 +2,8 @@
 .\venv\Scripts\activate
 pip install venv
 pip install Flask
-pip install *other dependencies*
-deactivate
+pip install beautifulsoup4
+deactivate    #when you want to stop virtual enviroment
 
 /////start the application////
 #cd in to rucoursemaps
