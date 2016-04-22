@@ -10,6 +10,8 @@ def index():
         return render_template("index.html")
     if request.method == 'POST':                    #when post happens
         deptnum = request.form.get('deptnum')       #get deptnum
+        if deptnum == "-1":
+            return render_template("404.html")
         courses,prereqs,names = getLists(deptnum)   #returns the array of 3 things
         print "\\\\\\\\\\\\\\\\\\LIST OF courses\\\\\\\\\\\\\\"
         print courses
