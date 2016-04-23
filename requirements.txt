@@ -1,1 +1,4 @@
 Flask==8.1.1
+BeautifulSoup4==
+Jinja2==2.7.3
+requests==0.13.5
