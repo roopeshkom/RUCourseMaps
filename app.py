@@ -19,7 +19,7 @@ def index():
         print prereqs
         print "\\\\\\\\\\\\\\\\\\LIST OF NAMES\\\\\\\\\\\\\\\\"
         print names
-        return render_template("graphs.html",courses=courses,prereqs=prereqs,names=names)
+        return render_template("graphs.html",courses=courses,prereqs=prereqs,names=names,deptnum=deptnum)
         #print stuff to debug
 @app.route('/graphs', methods=['GET'])
 def graphs():
