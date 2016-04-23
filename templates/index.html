@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>RU Course Maps</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='normalize.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='skeleton.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/skeleton.css">
+    <link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body>
 
     <div class="wrapper">
-        <h1 style="color:red">RU Course Maps</h1>
+        <h1 style="color:#F5002E">RU Course Maps</h1>
           <form action="{{ url_for('index') }}" name="deptnum" method="POST">
             <h3>Select a Subject Area</h3>
               <select name="deptnum">
@@ -23,15 +23,12 @@
           </form>
     </div>
 
-    <footer class="text-center animated fadeIn"> Questions? Feedback? Please email ______
+    <footer class="wrapper" style="font:300 12px/1.6875 sans-serif;"> Questions? Feedback? Please email ______
     			<br>
-    			Created by <a href=""> PersonA</a>, <a href="">PersonB</a>, <a href="">PersonC</a>
+    			Created by Alex, Roopesh, and Bhargav
     </footer>
-            </div>
-            <!--
-            <a href="https://github.com/roopeshkom/RUCourseMaps"><img id="github" style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork the project on GitHub"></a>
-             -->
-</body>
+
+  </body>
 <!--Created by Roopesh, Alex, and Bhargav-->
 <!-- Special thanks to Kartik, Reavan, Sakhib, and AP -->
 </html>
