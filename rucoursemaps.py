@@ -106,5 +106,3 @@ def test():
 	print "Classes:\n%s" % a
 	print "Prereqs:\n%s" % b
 	print "Names:\n%s" %c
-
-test()
