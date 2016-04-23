@@ -1,3 +1,16 @@
+UPDATE:PREDEYPOYMENT PROPER WAY
+First make sure you already have virutalenv on your machine not the project folder
+get it with: pip install virtualenv
+
+Then to use it on this project
+cd RUCourseMaps
+#virutalenv venv #you dont need to do this unless you dont see the venv folder
+next start the venv
+.\venv\Scripts\activate   or for bash it's
+source venv/bin/activate
+pip install - r requirements.txt #do this in your virtualenv
+then your gtg to run the app
+
 //////run app in venv/////
 .\venv\Scripts\activate   or for bash it's
 source venv/bin/activate
@@ -13,12 +26,3 @@ python app.py
 
 /////for cywin users
  /cygdrive/c/Python27/python.exe app.py
-
-
-UPDATE:PREDEYPOYMENT PROPER WAY
-First make sure you already have virutalenv on your machine not the project folder
-get it with: pip install virtualenv
-
-Then to use it on this project
-cd RUCourseMaps
-virutalenv venv
