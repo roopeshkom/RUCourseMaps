@@ -82,15 +82,18 @@ def getLists(depnum):
 	for i in names2:
 		if not i in names:
 			names.append(i)
-	for i in xrange(0, len(prereqs2), 2):
+	
+	for i in range(0, len(prereqs2), 2):
 		equal = False
-		a, b = prereqs2[i], prereqs2[i+1]
-		for j in xrange(0, len(prereqs), 2):
-			c, d = prereqs[i], prereqs[i+1]
-			if a==c and b==d:
-				equal = True
-				break
-		if not equal:
+		a = prereqs2[i]
+		b = prereqs2[i+1]
+		for j in range(0, len(prereqs), 2):
+			c = prereqs[j]
+			d = prereqs[j+1]
+			if a+b == c+d:
+					equal = True
+					break
+		if equal == False:
 			prereqs.append(a)
 			prereqs.append(b)
 
