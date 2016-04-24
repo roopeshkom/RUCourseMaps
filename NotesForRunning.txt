@@ -26,3 +26,9 @@ python app.py
 
 /////for cywin users
  /cygdrive/c/Python27/python.exe app.py
+
+ ///for deployment///
+ start venv
+ heroku login 		#assumes you already have herokudev toolkit installed
+ pip install gunicorn
+ gunicorn -b 127.0.0.1:4000 app:app
