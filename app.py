@@ -28,5 +28,5 @@ def graphs():
 if __name__ == '__main__':
     app.run(debug=True)
 
-#Special thanks to Reavor, Sakaib, AP, and Kartik
+#Special thanks to Reavan, Sakaib, AP, Kartik, and Nisarga
 # -Bhargav Tarpara

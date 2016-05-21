@@ -1,5 +1,19 @@
+UPDATE:PREDEYPOYMENT PROPER WAY
+First make sure you already have virutalenv on your machine not the project folder
+get it with: pip install virtualenv
+
+Then to use it on this project
+cd RUCourseMaps
+#virutalenv venv #you dont need to do this unless you dont see the venv folder
+next start the venv
+.\venv\Scripts\activate   or for bash it's
+source venv/bin/activate
+pip install - r requirements.txt #do this in your virtualenv
+then your gtg to run the app
+
 //////run app in venv/////
-.\venv\Scripts\activate
+.\venv\Scripts\activate   or for bash it's
+source venv/bin/activate
 pip install venv
 pip install Flask
 pip install beautifulsoup4
@@ -12,3 +26,9 @@ python app.py
 
 /////for cywin users
  /cygdrive/c/Python27/python.exe app.py
+
+ ///for deployment///
+ start venv
+ heroku login 		#assumes you already have herokudev toolkit installed
+ pip install gunicorn
+ gunicorn -b 127.0.0.1:4000 app:app
