@@ -44,7 +44,7 @@ cd into project
 $ . venv/bin/activate
 then
 pip install Flask
-pip install -r requirements.txt
+
 
 deactivate
 
