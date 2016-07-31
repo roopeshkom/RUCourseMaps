@@ -1,8 +1,14 @@
 from flask import Flask, request, render_template, url_for
-from rucoursemaps import getLists
+from bs4 import BeautifulSoup
+from logic import getLists
+import json
+import re
+import urllib2
+import os
+
 
 app = Flask(__name__)
-
+#config
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -20,13 +26,21 @@ def index():
         print "\\\\\\\\\\\\\\\\\\LIST OF NAMES\\\\\\\\\\\\\\\\"
         print names
         return render_template("graphs.html",courses=courses,prereqs=prereqs,names=names,deptnum=deptnum)
-        #print stuff to debug
+
 @app.route('/graphs', methods=['GET'])
 def graphs():
     return render_template("404.html")
 
+@app.route('/404')
+def badurl():
+    return render_template("404.html")
+
+
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+
 
 #Special thanks to Reavan, Sakaib, AP, Kartik, and Nisarga
-# -Bhargav Tarpara
+#Created by Alex, Roopesh, Bhargav
