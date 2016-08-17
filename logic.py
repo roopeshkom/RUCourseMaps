@@ -64,18 +64,17 @@ def getLists(depnum):
         courses2.append(i.get('courseNumber'))
         names2.append(i.get('title'))
 
-    for i in courses:
-        i.strip('u')
-    for i in prereqs:
-        i.strip('u')
-    for i in names:
-        i.lstrip('u')
-    for i in courses2:
-        i.strip('u')
-    for i in prereqs2:
-        i.strip('u')
-    for i in names2:
-        i.lstrip('u')
+#    for i in courses:
+#        i.strip('u')
+#    for i in prereqs:
+#    for i in names:
+#        i.lstrip('u')
+#    for i in courses2:
+#        i.strip('u')
+#    for i in prereqs2:
+#        i.strip('u')
+#    for i in names2:
+#        i.lstrip('u')
 
     for i in courses2:
         if not i in courses:
