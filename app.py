@@ -36,7 +36,9 @@ def graphs():
 def badurl():
     return render_template("404.html")
 
-
+@app.route('/resources', methods=['GET'])
+def resources():
+    return render_template("resources.html")
 
 
 if __name__ == '__main__':
