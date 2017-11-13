@@ -1,7 +1,7 @@
 RUCourseMaps
 ============
 This is a tool for students of Rutgers University to see all of the courses in any particular department by prerequisite.
-Just go to [rucoursemaps.com](https://rucoursemaps.com); Temporary URL [here](https://rucm.herokuapp.com/)
+Just go to [rucm.herokuapp.com](https://rucm.herokuapp.com/)
 
 **Note:** Courses which have prereqs in other departments do not show up. This feature will be added in the near future.
 
