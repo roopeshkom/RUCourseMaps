@@ -1,8 +1,7 @@
-from flask import Flask, request, render_template, url_for
 from bs4 import BeautifulSoup
 import json
 import re
-import urllib2
+import urllib.request as urllib2
 
 def getLists(depnum):
     if depnum == -1:
@@ -64,18 +63,6 @@ def getLists(depnum):
         courses2.append(i.get('courseNumber'))
         names2.append(i.get('title'))
 
-#    for i in courses:
-#        i.strip('u')
-#    for i in prereqs:
-#    for i in names:
-#        i.lstrip('u')
-#    for i in courses2:
-#        i.strip('u')
-#    for i in prereqs2:
-#        i.strip('u')
-#    for i in names2:
-#        i.lstrip('u')
-
     for i in courses2:
         if not i in courses:
             courses.append(i)
@@ -103,3 +90,4 @@ def getLists(depnum):
     ret.append(', '.join(names))
 
     return ret
+
