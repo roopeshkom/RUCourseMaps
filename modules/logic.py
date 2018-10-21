@@ -84,6 +84,12 @@ def getLists(depnum):
             prereqs.append(a)
             prereqs.append(b)
 
+    f_prereqs = []
+    for i, item in enumerate(prereqs[1::2]):
+        if prereqs[i-1] != 'NULL':
+            f_prereqs += [prereqs[i-1], item]
+    prereqs = f_prereqs
+    
     ret = []
     ret.append(', '.join(courses))
     ret.append(', '.join(prereqs))

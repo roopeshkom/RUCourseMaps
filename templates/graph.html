@@ -31,7 +31,7 @@
                     selector: 'node',
                     style: {
                         shape: 'hexagon',
-                        'content': 'data(id)',
+                        'content': 'data(firstname)',
                         'text-opacity': 1,
                         'text-valign': 'top',
                         'text-halign': 'center',
@@ -61,6 +61,15 @@
                     firstname: names[index]
                 }
             });
+        }
+        
+        for(index = 1; index < prereqs.length; index += 2){
+            cy.add({
+                data: {
+                    source: prereqs[index-1],
+                    target: prereqs[index]
+                }
+            }); 
         }
 
         cy.layout({
