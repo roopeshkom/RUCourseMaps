@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, url_for
 from bs4 import BeautifulSoup
-from logic import getLists
+from modules.logic import getLists
 import json
 import re
 import urllib.request as urllib2
