@@ -9,8 +9,6 @@ import os
 
 app = Flask(__name__)
 
-#config
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>RU Course Maps</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="RUCourse Maps, A site for students to get course information and plan there course load">
     <meta name="author" content="Bhargav Tarpara, Alex Jai, Roopesh K">
-    <link rel="icon" href="/static/img/favicon.ico">
-    <title>RU Course Maps</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/ie10-viewport-bug-workaround.css">
-    <link rel="stylesheet" href="/static/css/starter-template.css">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/starter-template.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -54,9 +55,5 @@
         </p>
       </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script>
-    <script src="bootstrap.min.js"></script>
-    <script src="ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
