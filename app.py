@@ -9,26 +9,26 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET']) 
 def index():
     if request.method == 'GET':
         return render_template("index.html")
-    if request.method == 'POST':                    #when post happens
-        deptnum = request.form.get('deptnum')       #get deptnum
+
+@app.route('/graph', methods=['POST'])
+def graph():
+    if request.method == 'POST':                    
+        deptnum = request.form.get('deptnum')      
         if deptnum == "-1":
             return render_template("404.html")
-        courses,prereqs,names = getLists(deptnum)   #returns the array of 3 things
+        courses,prereqs,names = getLists(deptnum) 
         print("\\\\\\\\\\\\\\\\\\LIST OF COURSES\\\\\\\\\\\\\\")
         print(courses)
         print("\\\\\\\\\\\\\\\\\\LIST OF PREREQS\\\\\\\\\\\\\\")
         print(prereqs)
         print("\\\\\\\\\\\\\\\\\\LIST OF NAMES\\\\\\\\\\\\\\\\")
         print(names)
-        return render_template("graphs.html",courses=courses,prereqs=prereqs,names=names,deptnum=deptnum)
-
-@app.route('/graphs', methods=['GET'])
-def graphs():
-    return render_template("404.html")
+        
+        return render_template("graph.html", deptnum=deptnum, courses=courses, names=names, prereqs=prereqs)
 
 @app.route('/404')
 def badurl():

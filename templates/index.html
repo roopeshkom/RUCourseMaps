@@ -3,9 +3,8 @@
   <head>
     <title>RU Course Maps</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="RUCourse Maps, A site for students to get course information and plan there course load">
+    <meta name="description" content="RUCourse Maps, A site for students to get course information and plan their course load">
     <meta name="author" content="Bhargav Tarpara, Alex Jai, Roopesh K">
     <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
@@ -36,7 +35,7 @@
       <div class="starter-template">
         <h1 style="color:#F5002E">RU Course Maps</h1>
         <p class="lead">Visualize all of the courses in any department by prereq.<br> Plan your course selection ahead of time.</p>
-        <form action="{{ url_for('index') }}" name="deptnum" method="POST">
+        <form action="{{ url_for('graph') }}" name="deptnum" method="POST">
           <h3>Select a Subject Area</h3>
             <select name="deptnum">
               <option value="-1" selected="selected">Select a Subject Area ---</option>
