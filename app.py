@@ -20,21 +20,15 @@ def graph():
         deptnum = request.form.get('deptnum')      
         if deptnum == "-1":
             return render_template("404.html")
-        courses,prereqs,names = getLists(deptnum) 
-        print("\\\\\\\\\\\\\\\\\\LIST OF COURSES\\\\\\\\\\\\\\")
-        print(courses)
-        print("\\\\\\\\\\\\\\\\\\LIST OF PREREQS\\\\\\\\\\\\\\")
-        print(prereqs)
-        print("\\\\\\\\\\\\\\\\\\LIST OF NAMES\\\\\\\\\\\\\\\\")
-        print(names)
+
+        courses, names, prereqs = getLists(deptnum) 
+        print(courses, names, prereqs, sep='\n')
         
         return render_template("graph.html", deptnum=deptnum, courses=courses, names=names, prereqs=prereqs)
 
 @app.route('/404')
 def badurl():
     return render_template("404.html")
-
-
 
 
 if __name__ == '__main__':

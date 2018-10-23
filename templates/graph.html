@@ -50,9 +50,9 @@
             ]
         });
 
-        var courses = {{ courses|tojson }}.split(",");
-        var names = {{ names|tojson }}.split(",");   
-        var prereqs = {{ prereqs|tojson }}.split(",");
+        var courses = {{ courses|tojson }};
+        var names = {{ names|tojson }};   
+        var prereqs = {{ prereqs|tojson }};
 
         for(index = 0; index < courses.length; index++){
             cy.add({

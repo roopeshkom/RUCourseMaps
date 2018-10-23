@@ -1,99 +1,23 @@
 from bs4 import BeautifulSoup
-import json
-import re
-import urllib.request as urllib2
+from requests import get
+from json import loads
+from re import findall
 
-def getLists(depnum):
-    if depnum == -1:
-        return None
+def getLists(deptnum):
 
-    url = "http://sis.rutgers.edu/soc/courses.json?campus=NB&semester=92016&level=U&subject="
-    url2 = "http://sis.rutgers.edu/soc/courses.json?campus=NB&semester=12016&level=U&subject="
-    url += str(depnum)
-    url2 += str(depnum)
+    # Loads json from Rutgers API endpoint
+    url = f'http://sis.rutgers.edu/soc/courses.json?campus=NB&semester=92018&level=U&subject={deptnum}'
+    text = get(url).text
+    soup = BeautifulSoup(text, 'lxml')
+    classes = loads(soup.get_text())
 
-    html = urllib2.urlopen(url).read()
-    html2 = urllib2.urlopen(url2).read()
-    soup = BeautifulSoup(html, 'html.parser')
-    soup2 = BeautifulSoup(html2, 'html.parser')
-    text = soup.get_text()
-    text2 = soup2.get_text()
-
-    parsed_json = json.loads(text)
-    prereqs = []; courses = []; names = []
-    for i in parsed_json:
-        reqs = i.get('preReqNotes')
-        if not (reqs is None):
-            arg = str(depnum) + ":..."; added = False; already = []
-            for z in re.findall(arg, str(reqs)):
-                if not z in already:
-                    prereqs.append(z[4:7])
-                    prereqs.append(i.get('courseNumber'))
-                    added = True
-                already.append(z)
-            if not added:
-                prereqs.append('NULL')
-                prereqs.append(i.get('courseNumber'))
-        else:
-            prereqs.append('NULL')
-            prereqs.append(i.get('courseNumber'))
-
-        courses.append(i.get('courseNumber'))
-        names.append(i.get('title'))
-
-    parsed_json2 = json.loads(text2)
-    prereqs2 = []; courses2 = []; names2 = []
-    for i in parsed_json2:
-        reqs = i.get('preReqNotes')
-        if not (reqs is None):
-            arg = str(depnum) + ":..."; added = False; already = []
-            for z in re.findall(arg, str(reqs)):
-                if not z in already:
-                    prereqs2.append(z[4:7])
-                    prereqs2.append(i.get('courseNumber'))
-                    added = True
-                already.append(z)
-            if not added:
-                prereqs2.append('NULL')
-                prereqs2.append(i.get('courseNumber'))
-        else:
-            prereqs2.append('NULL')
-            prereqs2.append(i.get('courseNumber'))
-
-        courses2.append(i.get('courseNumber'))
-        names2.append(i.get('title'))
-
-    for i in courses2:
-        if not i in courses:
-            courses.append(i)
-    for i in names2:
-        if not i in names:
-            names.append(i)
-
-    for i in range(0, len(prereqs2), 2):
-        equal = False
-        a = prereqs2[i]
-        b = prereqs2[i+1]
-        for j in range(0, len(prereqs), 2):
-            c = prereqs[j]
-            d = prereqs[j+1]
-            if a+b == c+d:
-                    equal = True
-                    break
-        if equal == False:
-            prereqs.append(a)
-            prereqs.append(b)
-
-    f_prereqs = []
-    for i, item in enumerate(prereqs[1::2]):
-        if prereqs[i-1] != 'NULL':
-            f_prereqs += [prereqs[i-1], item]
-    prereqs = f_prereqs
+    # Parses for the class id number and name
+    courses = [f'{class_["offeringUnitCode"]}:{deptnum}:{class_["courseNumber"]}' for class_ in classes] 
+    names = [class_['title'] for class_ in classes]
     
-    ret = []
-    ret.append(', '.join(courses))
-    ret.append(', '.join(prereqs))
-    ret.append(', '.join(names))
-
-    return ret
-
+    # Gathers prereqs for each class and flattens the list
+    prereqs = [[[p, f'{class_["offeringUnitCode"]}:{deptnum}:{class_["courseNumber"]}'] for p in 
+        set(findall('\\d{{2}}:{}:\\d{{3}}'.format(deptnum), str(class_['preReqNotes'])))] for class_ in classes]
+    prereqs = [item for class_ in prereqs for tup in class_ for item in tup]
+    
+    return (courses, names, prereqs)

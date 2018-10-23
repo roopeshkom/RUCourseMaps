@@ -3,6 +3,7 @@ Flask==0.10.1
 gunicorn==19.6.0
 itsdangerous==0.24
 Jinja2==2.8
+lxml==4.2.5
 MarkupSafe==0.23
 requests==2.7.0
 Werkzeug==0.11.9
